@@ -1,0 +1,34 @@
+# imessage-weather config
+#
+# Copy this to config.yaml at the repo root (or wherever) and fill in your values.
+# config.yaml is gitignored.
+
+# The recipient. Phone number in E.164 format, or an email tied to an Apple ID.
+recipient: "+15555550100"
+
+# Where to fetch weather for. Use https://www.latlong.net to look up coordinates.
+location:
+  name: Brooklyn          # optional; appears in the message body
+  latitude: 40.6501
+  longitude: -73.9496
+
+# 'metric' = Celsius, mm, km/h. 'imperial' = Fahrenheit, inch, mph.
+units: imperial
+
+# How the message starts. Plain string, sent verbatim.
+greeting: "Good morning"
+
+# Optional. Override the default outfit suggestions.
+# Bands are: freezing, cold, cool, mild, warm, hot, rainy, snowy, windy.
+# Items from matching bands are concatenated and deduped in order.
+wardrobe:
+  cold:
+    - "wool coat"
+    - "scarf"
+    - "boots"
+  warm:
+    - "linen shirt"
+    - "shorts"
+  rainy:
+    - "rain shell"
+    - "waterproof shoes"
