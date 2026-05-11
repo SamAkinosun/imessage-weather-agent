@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "imessage-weather-agent"
+version = "0.1.0"
+description = "Send a daily weather and outfit iMessage on macOS, powered by Open-Meteo."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "SamAkinosun" }]
+keywords = ["weather", "imessage", "macos", "automation", "open-meteo"]
+classifiers = [
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS :: MacOS X",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Communications",
+]
+dependencies = [
+    "pyyaml>=6.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/SamAkinosun/imessage-weather-agent"
+Issues = "https://github.com/SamAkinosun/imessage-weather-agent/issues"
+
+[project.scripts]
+imessage-weather = "imessage_weather.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
