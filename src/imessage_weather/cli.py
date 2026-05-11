@@ -30,6 +30,12 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="print the message instead of sending it",
     )
+    parser.add_argument(
+        "--verbose",
+        "-v",
+        action="store_true",
+        help="print the parsed weather snapshot to stderr before composing the message",
+    )
     return parser
 
 
@@ -43,6 +49,8 @@ def main(argv=None) -> int:
         return 2
 
     snapshot = fetch_weather(cfg.latitude, cfg.longitude, units=cfg.units)
+    if args.verbose:
+        print(f"snapshot: {snapshot}", file=sys.stderr)
     outfit = suggest_outfit(snapshot, wardrobe=cfg.wardrobe)
     body = format_message(
         snapshot=snapshot,
